@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="number" name="" id="s1">
+    </div>
+    <div>
+        <input type="number" name="" id="s2">
+    </div>
+    <div>
+        <button onclick="toplama()">toplam</button>
+    </div>
+    <div>
+        <label id="sonuc">sonuç: </label>
+    </div>
+
+    <script>
+        let s1 = document.getElementById('s1');
+        let s2 = document.getElementById('s2');
+        let sonuc = document.getElementById('sonuc');
+        let toplam = 0;
+        sonuc.innerHTML = 'toplam..: '+ toplam;
+        function toplama(){
+            let toplam = parseInt(s1.value) + parseInt(s2.value);
+            console.log('toplam...: ', toplam);           
+        }
+        
+        function render(){
+            
+        }
+        
+    </script>
+</body>
+</html>

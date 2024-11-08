@@ -18,8 +18,7 @@ function Login() {
         setIsUserEmpty(userName === '');     
         setIsPasswordEmpty(password === ''); 
         if(userName === '' || password=== ''){
-            setIsEmpty(true);  
-               
+            setIsEmpty(true);                 
             return
         }
         else
@@ -45,6 +44,7 @@ function Login() {
         })
         
     }
+    console.log('login render');
   return (
     <div className='container'>
         <div className="row mt-4">
