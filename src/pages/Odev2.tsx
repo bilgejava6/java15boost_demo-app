@@ -7,6 +7,17 @@ function Odev2() {
     const [rePassword, setRePassword] = useState('');
     const [age, setAge] = useState(0);
     const [isWrong, setIsWrong] = useState(false);
+    const [user, setUser] = useState({
+        'userName': '',
+        'password': '',
+        'rePassword': '',
+        'age': 0
+    });
+    const kaydet = ()=>{
+        setUser({
+            userName,password,rePassword,age
+        });
+    }
 
   return (
     <div className="contanier">
@@ -39,9 +50,18 @@ function Odev2() {
                     <input onChange={evt=>{setAge(parseInt(evt.target.value))}} className='form-control' type="number" placeholder='yaş'/>
                 </div>
                 <div className="mb-3 d-grid">
-                    <button className='btn btn-secondary'>Yeni Üye</button>
+                    <button onClick={kaydet} className='btn btn-secondary'>Yeni Üye</button>
                 </div>
-
+                <div>
+                <label>userName...: {user.userName} </label>                    
+                </div>
+                <div>
+                <label>password...: {user.password} </label>                    
+                </div>
+                <div>
+                <label>age...: {user.age}</label>                    
+                </div>
+                
             </div>
             <div className="col-5"></div>
         </div>
