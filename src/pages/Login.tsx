@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
 function Login() {
-    let userName = '';
-    let password = '';
+
+    const [userName,setUserName]= useState('');
+    const [password, setPassword] = useState('');
     /**
      * java class değişkenleri korumak için encapsulation
      * private int userName;
@@ -11,9 +12,14 @@ function Login() {
      * 
      */
     const [isEmpty,setIsEmpty] = useState(false);
+    const [isUserEmpty, setIsUserEmpty] = useState(false);
+    const [isPasswordEmpty, setIsPasswordEmpty] = useState(false)
     const doLogin = ()=>{
+        setIsUserEmpty(userName === '');     
+        setIsPasswordEmpty(password === ''); 
         if(userName === '' || password=== ''){
-            setIsEmpty(true);            
+            setIsEmpty(true);  
+               
             return
         }
         else
@@ -39,7 +45,6 @@ function Login() {
         })
         
     }
-  console.log('render');  
   return (
     <div className='container'>
         <div className="row mt-4">
@@ -54,15 +59,30 @@ function Login() {
                      </div>
                     : null 
                 }
+                {
+                    isUserEmpty 
+                    ? <div className="mb-3">
+                        <label style={{color:'red'}} className='form-label'>Kullanıcı adı</label>
+                        <input style={{borderColor:'red'}} onChange={evt=>{setUserName(evt.target.value)}} type="text" className='form-control' />
+                      </div>
+                    : <div className="mb-3">
+                        <label className='form-label'>Kullanıcı adı</label>
+                        <input onChange={evt=>{setUserName(evt.target.value)}} type="text" className='form-control' />
+                      </div>
+                }
                 
-                <div className="mb-3">
-                    <label className='form-label'>Kullanıcı adı</label>
-                    <input onChange={evt=>{userName=evt.target.value}} type="text" className='form-control' />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Şifre</label>
-                    <input onChange={evt=>{password=evt.target.value}} type="password" className="form-control" />
-                </div>
+                {
+                    isPasswordEmpty
+                    ?  <div className="mb-3">
+                        <label style={{color:'red'}} className="form-label">Şifre</label>
+                        <input style={{borderColor:'red'}} onChange={evt=>{setPassword(evt.target.value)}} type="password" className="form-control" />
+                      </div>
+                    : <div className="mb-3">
+                        <label className="form-label">Şifre</label>
+                        <input onChange={evt=>{setPassword(evt.target.value)}} type="password" className="form-control" />
+                      </div>
+                }
+               
                 <div className="mb-3">
                     <button onClick={doLogin} className='btn btn-success'>Giriş</button>
                 </div>
