@@ -8,9 +8,10 @@ import OrnekPage from './pages/OrnekPage';
 import UserList from './pages/UserList';
 import UserListComponents from './pages/UserListComponents';
 import UserAvatarList from './pages/UserAvatarList';
+import UserPage from './pages/UserPage';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <UserAvatarList />
+  <UserPage />
 );
