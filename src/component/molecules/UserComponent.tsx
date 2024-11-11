@@ -12,12 +12,13 @@ function UserComponent(user: IUser) {
   const checkedEvent = (evt: any)=>{
     setIsActive(evt.target.checked);
   }
+  const getBodyClass = (state: boolean)=>{
+        return state ? "col-3 border m-2 rounded-3 shadow p-4 text-bg-success"
+                      :  "col-3 border m-2 rounded-3 shadow p-4 text-bg-secondary"
+  }
   console.log('user component render'+ user.userName);
   return (
-    <div className={
-        isActive ? "col-3 border m-2 rounded-3 shadow p-4 text-bg-success"
-                      :  "col-3 border m-2 rounded-3 shadow p-4 text-bg-secondary"
-    }>
+    <div className={getBodyClass(isActive)}>
         <div className='mb-3'>
             <label className='form-label'>UserName....: {user.userName}</label>                    
         </div>

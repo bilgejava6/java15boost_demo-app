@@ -93,15 +93,7 @@ function UserListComponents() {
    * onChange= {evt=>{ checkedEvent(DEĞER,DEĞER)}}
    * 
    */
-  const checkedEvent = (isActive: boolean, index: number )=>{
-        let list = userList.map((data,Uindex)=>{
-            if(Uindex==index) data.isActive = isActive;
-            return data;
-        })
-        setUserList(list);
-        // bunu bir sunucuya ilgili kullanıcının değerini dğeiştirmek için gönderdiğinizi düşünün.
-        //console.log('User data...: ', userList);
-  }
+  
   console.log('user component list page render');
   return (
     <div className="container">
