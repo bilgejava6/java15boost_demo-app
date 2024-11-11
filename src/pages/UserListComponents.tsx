@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import UserComponent from '../component/molecules/UserComponent';
 
-function UserList() {
+function UserListComponents() {
   /**
    * useState, bir değişkeni sarmalayarak react tarafından yönetilmesini sağlar, böylece bu 
    * değişkenin state inde olacak bir değişiklik bilinir ve ilgili component tekrardan 
@@ -101,7 +102,7 @@ function UserList() {
         // bunu bir sunucuya ilgili kullanıcının değerini dğeiştirmek için gönderdiğinizi düşünün.
         //console.log('User data...: ', userList);
   }
-  console.log('render');
+  console.log('user component list page render');
   return (
     <div className="container">
         <div className="row mt-5 mb-3">
@@ -111,22 +112,7 @@ function UserList() {
             {
                 userList.map((user,index)=>{
                     return( 
-                        <div key={index} className={
-                            user.isActive ? "col-3 border m-2 rounded-3 shadow p-4 text-bg-success"
-                                          :  "col-3 border m-2 rounded-3 shadow p-4 text-bg-secondary"
-                        }>
-                            <div className='mb-3'>
-                                <label className='form-label'>UserName....: {user.userName}</label>                    
-                            </div>
-                            <div className='mb-3'>
-                                <label className="form-label">Name........: {user.name}</label>                  
-                            </div>
-                            <div className='mb-3 form-check form-switch'>
-                                <input onChange={evt=>{
-                                    checkedEvent(evt.target.checked,index)
-                                }} className="form-check-input" type="checkbox" defaultChecked={user.isActive} />
-                            </div>
-                        </div>
+                        <UserComponent key={index} userName={user.userName} name={user.name} isActive={user.isActive} />
                     ) 
                 })
             }
@@ -137,4 +123,4 @@ function UserList() {
   )
 }
 
-export default UserList
+export default UserListComponents
