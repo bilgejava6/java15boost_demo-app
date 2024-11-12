@@ -34,13 +34,13 @@ function GameBall(ahmetAmcaNasilsin: IGameBallProps) {
             {
                 ahmetAmcaNasilsin.isFill
                 ? <div style={{  // içi dolu top
-                    display: 'inline-block', width: '35px', height: '35px', 
+                    display: 'inline-block', width: '35px', height: '35px', margin: '3px',
                     borderRadius: '50%', border:borderColor(), backgroundColor: backGroundColor()
                     }}>
             
                 </div>
                 : <div style={{ // içi boş top
-                    display: 'inline-block', width: '35px', height: '35px', 
+                    display: 'inline-block', width: '35px', height: '35px', margin: '3px', 
                     borderRadius: '50%', border:borderColor()
                     }}>
             
