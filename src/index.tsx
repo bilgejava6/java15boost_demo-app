@@ -10,9 +10,10 @@ import UserListComponents from './pages/UserListComponents';
 import UserAvatarList from './pages/UserAvatarList';
 import UserPage from './pages/UserPage';
 import Yarisma from './pages/Yarisma';
+import ProductList from './pages/ProductList';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Yarisma />
+  <ProductList />
 );
