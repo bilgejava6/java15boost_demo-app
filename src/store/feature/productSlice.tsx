@@ -39,6 +39,7 @@ const initialStateProduct = {
 export const fetchGetAllProducts = createAsyncThunk(
     'product/fetchGetAllProducts',
    async ()=>{
+     console.log('2- fetchGetAllProducts çalıştı');
        return await fetch('https://dummyjson.com/products')
         .then(data=>data.json())
     }
@@ -61,10 +62,12 @@ const productSlice = createSlice({
     extraReducers: (build)=>{
             build.addCase(fetchGetAllProducts.pending,(state)=>{
                 // eğer fetch işlemi devam ediyor bitmemiş ise yüklenir true olsun
+                console.log('1- fetchGetAllProducts DEVAM EDİYOR');
                 state.isLoading = true;
             });
             build.addCase(fetchGetAllProducts.fulfilled,(state,action)=>{
                 // fetch işlemi tamamlandı.
+                console.log('3- fetchGetAllProducts BİTTİ');
                 state.isLoading = false;
                 state.productList = action.payload.products
             });

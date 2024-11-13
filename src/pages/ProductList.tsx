@@ -5,10 +5,11 @@ import name, {
 } from '../utils/data'
 import CheckBox from '../component/atoms/CheckBox';
 import UrunCard from '../component/molecules/UrunCard';
+import { fetchGetAllProducts } from '../store/feature/productSlice';
+import { useDispatch } from 'react-redux';
 function ProductList() {
   const [kategoriler, setKategoriler] = useState(dataProperties);
   const [urunler, setUrunler] = useState(dataProductList);
-
   const kategoriList = ()=>{
     return kategoriler.map((data,index)=>{
                     return ( <div className='col'>
@@ -24,7 +25,16 @@ function ProductList() {
                     </div>
     })
  }
-  return (
+ /**
+  * asyncThunk, direkt çağırılamaz, tetiklenmek için bir 
+  * aracıya ihtiyaç duyarlar. Neden, çünkü tetiklendiklerinin
+  * sclice tarafından bilinmesine ihtiyaç vardır.
+  * burada bunu tetikleyen react kodu useDispatch() dir.
+  */
+  const dispatch = useDispatch<any>();
+  dispatch(fetchGetAllProducts());
+
+ return (
     <div className="container">
         <div className="row mt-5 shadow p-2 justify-content-center">
             <div className='col-8'>
